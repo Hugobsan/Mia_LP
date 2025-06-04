@@ -2,8 +2,6 @@
 
 Bem-vindo à landing page da **MIA**, uma solução inovadora de atendimento inteligente disponível 24h para o seu negócio.
 
-![MIA Banner](img/mia.svg)
-
 ## ✨ Sobre o Projeto
 
 A MIA é uma atendente virtual que transforma a experiência dos seus clientes, oferecendo:
