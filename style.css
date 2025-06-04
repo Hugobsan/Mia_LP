@@ -1,7 +1,7 @@
 /* === RESET & BASE === */
 html {
     scroll-behavior: smooth;
-  }
+}
 
 * {
     margin: 0;
@@ -14,6 +14,173 @@ body {
     background-color: #000;
     color: #fff;
     margin-top: 10vh;
+}
+
+/* === ANIMAÇÕES === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Classes de animação mais estáveis */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animações específicas com transições mais suaves */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+.fade-in.animate {
+    opacity: 1;
+    animation: none;
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+    animation: none;
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+    animation: none;
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scale-in.animate {
+    opacity: 1;
+    transform: scale(1);
+    animation: none;
+}
+
+.bounce-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.bounce-in.animate {
+    opacity: 1;
+    transform: scale(1);
+    animation: none;
+}
+
+/* Delays com transições */
+.animate.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.animate.delay-2 {
+    transition-delay: 0.4s;
+}
+
+.animate.delay-3 {
+    transition-delay: 0.6s;
+}
+
+.animate.delay-4 {
+    transition-delay: 0.8s;
 }
 
 /* === HEADER === */
@@ -30,6 +197,7 @@ body {
     height: 6vh;
     background-color: transparent;
     padding: 2vh;
+    animation: slideUp 0.8s ease-out;
 }
 
 .logo {
@@ -41,7 +209,7 @@ body {
 .menu-toggle {
     font-size: 2rem;
     cursor: pointer;
-  }
+}
 
 .nav {
     display: none;
@@ -84,22 +252,26 @@ body {
     font-size: 3rem;
     margin-bottom: 0.1rem;
     color: #00D084;
+    animation: slideLeft 1s ease-out;
 }
 
 .hero h2 {
     font-size: 1.5rem;
     color: #00D084;
     margin: 1rem 0;
+    animation: slideLeft 1s ease-out 0.2s both;
+}
+
+.hero h4 {
+    font-size: 2vh;
+    animation: slideLeft 1s ease-out 0.1s both;
 }
 
 .hero p {
     padding-right: 50px;
     font-size: 1rem;
     margin-bottom: 1rem;
-}
-
-.hero h4 {
-    font-size: 2vh;
+    animation: slideLeft 1s ease-out 0.3s both;
 }
 
 .hero-img {
@@ -107,6 +279,7 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
+    animation: slideRight 1s ease-out 0.5s both;
 }
 
 .btn-primary {
@@ -119,10 +292,13 @@ body {
     font-weight: bold;
     margin-top: 1rem;
     font-size: 2vh;
+    animation: scaleIn 0.8s ease-out 0.6s both;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .btn-primary:hover {
     background-color: #00a46b;
+    transform: translateY(-2px);
 }
 
 .destaque {
@@ -202,6 +378,7 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     min-height: 22vh;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sobre .card h4 {
@@ -211,6 +388,11 @@ body {
 
 .sobre .card p {
     font-size: 16px;
+}
+
+.sobre .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 208, 132, 0.2);
 }
 
 .imagem-lateral img {
@@ -228,7 +410,7 @@ body {
     background-color: #000;
     overflow-x: hidden;
     text-align: center;
-    height: 100vh;
+    min-height: auto;
 }
 
 .funciona h3 {
@@ -256,6 +438,7 @@ body {
     aspect-ratio: 16/9;
     background: #000;
     margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
 
 .video-container iframe {
@@ -265,6 +448,10 @@ body {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+.video-container:hover {
+    transform: scale(1.02);
 }
 
 /* === DESKTOP STYLES (min-width: 768px) === */
@@ -386,13 +573,14 @@ body {
         max-width: 60vh;
     }
 
-    .funciona #funciona {
-        flex-direction: row;
+    .funciona {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 5rem 4rem;
-        min-height: 100vh;
-        text-align: left;
+        min-height: auto;
+        text-align: center;
     }
 
     .funciona h3 {
