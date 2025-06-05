@@ -48,4 +48,4 @@ Ficou interessado? Agende uma demonstração pelo WhatsApp:
 
 ---
 
-Desenvolvido com 💚 por [Seu Nome ou Empresa]
+Desenvolvido com 💚 por Hugo Barbosa
